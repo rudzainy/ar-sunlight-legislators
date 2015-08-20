@@ -1,4 +1,8 @@
 require_relative '../app/models/legislator'
+require_relative '../app/models/rep'
+require_relative '../app/models/sen'
+require_relative '../app/models/del'
+require_relative '../app/models/com'
 require 'csv'
 
 class SunlightLegislatorsImporter
@@ -7,6 +11,10 @@ class SunlightLegislatorsImporter
     csv.each do |column|
       attributes = {}
       column.each do |field, value|
+        # scrub
+        if value == ""
+          value = nil
+        end
         attributes[field.to_sym] = value
       end
       Legislator.create(attributes)
