@@ -1,4 +1,4 @@
-requrie_relative '../../db/config'
+require_relative '../../db/config'
 
-class Legislator
+class Legislator < ActiveRecord::Base
 end

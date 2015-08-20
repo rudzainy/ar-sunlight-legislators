@@ -1,14 +1,15 @@
+require_relative '../app/models/legislator'
 require 'csv'
 
 class SunlightLegislatorsImporter
   def self.import(filename)
     csv = CSV.new(File.open(filename), :headers => true)
-    csv.each do |row|
-      row.each do |field, value|
-        # TODO: begin
-
-        # TODO: end
+    csv.each do |column|
+      attributes = {}
+      column.each do |field, value|
+        attributes[field.to_sym] = value
       end
+      Legislator.create(attributes)
     end
   end
 end
@@ -23,9 +24,3 @@ end
 # rescue NotImplementedError => e
 #   $stderr.puts "You shouldn't be running this until you've modified it with your implementation!"
 # end
-
-
-
-rep < CM
-
-sen < CMCM < ActiveRecord::Base
