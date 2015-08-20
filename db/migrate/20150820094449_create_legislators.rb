@@ -10,7 +10,6 @@ class CreateLegislators < ActiveRecord::Migration
       t.string :name_suffix
       t.string :nickname
       t.string :party
-      t.string :state
       t.string :district
       t.boolean :in_office
       t.string :gender
@@ -31,6 +30,15 @@ class CreateLegislators < ActiveRecord::Migration
       t.string :official_rss
       t.string :senate_class
       t.date :birthdate
+      t.timestamp null: false
+    end
+
+    create_table :states do |t|
+      t.string :name # no.7 in array
+    end
+
+    create_table :political_parties do |t|
+      t.string :name # no.8 in array
     end
   end
 end
