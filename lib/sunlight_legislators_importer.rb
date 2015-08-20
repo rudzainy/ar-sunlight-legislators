@@ -12,9 +12,7 @@ class SunlightLegislatorsImporter
       attributes = {}
       column.each do |field, value|
         # scrub
-        if value == ""
-          value = nil
-        end
+        value = nil if value == ""
         attributes[field.to_sym] = value
       end
       Legislator.create(attributes)

@@ -2,6 +2,7 @@ require_relative '../../db/config'
 
 class Legislator < ActiveRecord::Base
   self.inheritance_column = :title
+  has_many :tweets
 
   def name
     @name = ""
